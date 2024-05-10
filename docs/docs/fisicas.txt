@@ -1,0 +1,24 @@
+analisis:
+los conceptos de la fisica la aplicamos en un kinematic object, cuyas propiedades son:
+- angulo
+- velocidad
+- aceleracion
+
+formula para la fuerza aplicada a un objeto:
+f = m*a
+- masa
+- aceleracion
+
+formula para la friccion entre dos objetos:
+Rf = 1/2p V2 S Cf
+
+- densidad
+- velocidad
+- area
+
+Vectores:
+dx = direccion/desplazamiento por el eje horizontal X
+dy = direccion/desplazamiento por el eje vertical Y
+
+visitar:
+https://github.com/OSMstudios/Love2d-Platformer-Tutorial/blob/master/2_plumbing_a_game/entities/player.lua
