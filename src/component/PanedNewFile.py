@@ -1,6 +1,7 @@
 import customtkinter as CTK
 import src.core.app as app
 import src.editor.data as data
+import os.path
 
 class Instance:
     def __init__(self) -> None:
@@ -25,6 +26,7 @@ class Instance:
         self.option_cancel.pack(side="right", padx=5, pady=10)
     def create_proyect(self):
         self.content = self.entry.get()
+        self.error = False
         self.keys = [
             "/", "\\", "<", ">", '"', "'", ":", "|",
             "*", "#", "?", "~", "€", "$", "¬", "(",
@@ -34,6 +36,7 @@ class Instance:
         # no se usar el find o in.
         if self.content == "":
             self.title_name.configure(text="Los espacio en blanco no esta permitido", text_color="#FF0000")
+            self.error = True
         else:
             for i in range(len(self.keys)):
                 for j in range(len(self.content)):
@@ -42,9 +45,25 @@ class Instance:
                             text="caracter no permitido " + '" ' +self.keys[i] + ' "',
                             text_color="#FF0000"
                         )
+                        self.error = True
                         break
+        
+        if os.path.exists(str(self.content) + ".json"):
+            self.title_name.configure(
+                text="El archivo ya existe",
+                text_color="#FF0000"
+            )
+            self.error = True
+        
+        if not self.error:
+            data.is_create_file = True
+            data.create(str(self.content) + ".json")
+            self.create()
+            app.root.title("CakeMaker " + str(self.content))
 
     def destroy(self):
         self.frame.destroy()
         data.new_file = False
+    def create(self):
+        self.frame.destroy()
     
