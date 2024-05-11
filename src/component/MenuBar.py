@@ -18,7 +18,6 @@ edit_menu.add_separator()
 
 help_menu = tk.Menu(bar, tearoff=0)
 
-help_menu.add_cascade(label="Documentación")
 help_menu.add_cascade(label="Acerca de...")
 
 bar.add_cascade(label="Archivo", menu=file_menu)

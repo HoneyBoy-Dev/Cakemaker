@@ -1,1 +1,1 @@
-pyinstaller --noconsole --onefile --add-data "res;." main.py
+pyinstaller --noconsole --icon=logo.ico main.py

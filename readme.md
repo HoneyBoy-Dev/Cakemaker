@@ -1,7 +1,7 @@
 # CakeMaker. 
 Es un Framework que trabaja junto con [OneLua](https://github.com/ONElua?tab=repositories) que permite
 automatizar tareas de manera más rapida. Incluyendo funciones de animaciones, carga escenas mediante
-archivos JSONs, detección de colisiones e implementando behaviors para facilitar la creación de juegos.
+archivos JSONs, detección de colisiones e implementando behaviors para facilitar la creación de tus proyectos.
 [Documentación](docs/CakeMaker/index.md)
 
 # CakeMakerEditor.
