@@ -1,8 +1,11 @@
 import tkinter as tk
+import customtkinter as CTK
 import src.core.app as app
+import src.editor.data as data
 
 bar = tk.Menu(app.root)
 app.root.config(menu=bar)
+
 
 file_menu = tk.Menu(bar, tearoff=0)
 

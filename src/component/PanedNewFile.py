@@ -124,6 +124,9 @@ class Instance:
 
     def create(self):
         self.frame.destroy()
+
+        data.save_button_enable()
+
         frame = CTK.CTkFrame(app.root)
         frame.pack(expand=1, fill="both")
 

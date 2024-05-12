@@ -1,4 +1,4 @@
-import customtkinter
+import customtkinter as CTK
 import json
 
 new_file = False
@@ -23,3 +23,8 @@ def create(name):
 
 def add_object():
     print("hello")
+
+import src.component.MenuBar as MenuBar
+def save_button_enable():
+    MenuBar.file_menu.entryconfig("Guardar", state="active")
+    MenuBar.file_menu.entryconfig("Salir", state="active")
