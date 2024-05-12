@@ -3,6 +3,10 @@ import src.core.app as app
 import src.editor.data as data
 import os.path
 
+import src.component.EditorPropierties as EditorPropierties
+import src.component.EditorCanva as EditorCanva
+import src.component.ListObjects as ListObjects
+
 class Instance:
     def __init__(self) -> None:
         self.frame = CTK.CTkFrame(
@@ -81,7 +85,7 @@ class Instance:
             ")", "[", "]", "&"," "
         ]
 
-        # no se usar el find o in.
+        #characters
         if self.content == "":
             self.title_name.configure(
                 text="Los espacio en blanco no esta permitido",
@@ -99,17 +103,17 @@ class Instance:
                         self.error = True
                         break
         
+        #path
         if os.path.exists(str(self.content) + ".json"):
-            
             self.title_name.configure(
                 text="El archivo ya existe",
                 text_color="#E74C3C"
             )
-
             self.error = True
         
         if not self.error:
             data.is_create_file = True
+            # Create file.
             #data.create(str(self.content) + ".json")
             self.create()
             app.root.title("CakeMaker " + str(self.content))
@@ -120,4 +124,18 @@ class Instance:
 
     def create(self):
         self.frame.destroy()
+        frame = CTK.CTkFrame(app.root)
+        frame.pack(expand=1, fill="both")
+
+        frame.rowconfigure(0, weight=1)
+        frame.columnconfigure(1, weight=1)
+
+        editor_propierties_bar = EditorPropierties.Instance(frame)
+        editor_propierties_bar.pack()
+
+        editor_canvas_bar = EditorCanva.Instance(frame)
+        editor_canvas_bar.pack()
+
+        list_objects_bar = ListObjects.Instance(frame)
+        list_objects_bar.pack()
     

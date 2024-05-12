@@ -1,5 +1,8 @@
 import customtkinter as CTK
 import src.core.app as app
+import src.editor.data as data
+
+import src.component.ItemObject as ItemObject
 
 class Instance:
     def __init__(self, master) -> None:
@@ -21,9 +24,13 @@ class Instance:
             self.frame,
             text="Añadir",
             fg_color="#148F77",
-            hover_color="#0E6251"
+            hover_color="#0E6251",
+            command=self.command
         )
     def pack(self):
         self.frame.grid(row=0, column=2, sticky="ns")
         self.list_container.pack(fill="y", expand=1, padx=5, pady=5)
         self.add_button.pack(pady=5)
+    
+    def command(self):
+        ItemObject.Instance(self.list_container).pack()
